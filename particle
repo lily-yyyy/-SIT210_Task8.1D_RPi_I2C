@@ -1,0 +1,29 @@
+#include<Wire.h> //Including the library which will be useful in the project
+
+
+int led1 =A0; //setting up the LED
+
+
+void setup() {
+    
+    Wire.begin(0x8);
+    Wire.onReceive(receiveEvent); //determining being the slave in the project
+    
+    
+    
+    pinMode(led1, OUTPUT);
+    digitalWrite(led1, LOW);
+
+}
+
+void receiveEvent(int howMany) {
+    while (Wire.available()) {
+        char c = Wire.read(); // reading the input from the raspberry pi
+        digitalWrite(led1, c);
+    }
+}
+
+void loop() {
+    delay(1000);
+
+}
