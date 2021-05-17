@@ -1,7 +1,7 @@
 from smbus import SMBus
 
 addr = 0x8
-BUS = SMBus(1) //using the 1st SMBus connection
+BUS = SMBus(1) 
 
 num = 1
 
@@ -11,8 +11,8 @@ while num == 1:
     ledstate = input(">>>>   ")
     
     if ledstate == "1":
-        BUS.write_byte(addr, 0x1) //turning the LED on
+        BUS.write_byte(addr, 0x1) 
     elif ledstate == "0":
-        BUS.write_byte(addr, 0x0) //turning the LED off
+        BUS.write_byte(addr, 0x0) 
     else:
         numb = 0
